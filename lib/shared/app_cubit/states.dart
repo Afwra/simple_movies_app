@@ -12,3 +12,7 @@ class TrendingTvSeriesLoadedFail extends AppStates{}
 
 class GamesLoadedSuccess extends AppStates{}
 class GamesLoadedFail extends AppStates{}
+
+class SearchLoadedSuccess extends AppStates{}
+class SearchLoading extends AppStates{}
+class SearchLoadedFail extends AppStates{}

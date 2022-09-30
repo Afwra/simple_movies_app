@@ -107,4 +107,37 @@ class AppCubit extends Cubit<AppStates>{
     });
   }
 
+  bool fieldSubmitted = false;
+  List<Results> searchResults = [];
+  bool searchLoaded = false;
+  void getSearch({required String text}){
+    fieldSubmitted = true;
+    searchLoaded = false;
+    searchResults.clear();
+    emit(SearchLoading());
+    DioHelper.getData(
+        path: '/titles/search/title/${text.trim()}',
+        queryParameters: {
+          'info':'mini_info',
+          'sort':'year.decr',
+          'titleType':'tvSeries',
+          'titleType':'movie',
+          'endYear':DateTime.now().year,
+        }
+    ).then((value){
+      if(value.statusCode == 200){
+        value.data['results'].forEach((element){
+          searchResults.add(Results.fromJson(element));
+        });
+        debugPrint(searchResults[1].titleText!.text.toString());
+        searchLoaded = true;
+        debugPrint('bool= ${searchLoaded.toString()}');
+        emit(SearchLoadedSuccess());
+      }
+    }).catchError((error){
+      debugPrint(error.toString());
+      emit(SearchLoadedFail());
+    });
+  }
+
 }

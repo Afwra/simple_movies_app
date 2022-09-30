@@ -62,6 +62,7 @@ Widget defaultSearchField(
         {int? maxLength,
         TextInputType? textInputType,
         void Function()? onTap,
+          void Function(String)? onSubmit,
         bool enabled = true,
         bool readonly = false}) =>
     TextFormField(
@@ -82,6 +83,7 @@ Widget defaultSearchField(
       ),
       readOnly: readonly,
       onTap: onTap,
+      onFieldSubmitted: onSubmit,
     );
 
 void navigateTo(BuildContext context, Widget screen) {
