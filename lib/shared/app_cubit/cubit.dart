@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_movies_app/models/single_title_model.dart' as single_title_model;
 import 'package:simple_movies_app/models/title_model.dart';
 import 'package:simple_movies_app/shared/app_cubit/states.dart';
 import 'package:simple_movies_app/shared/network/remote/dio_helper.dart';
@@ -137,6 +138,31 @@ class AppCubit extends Cubit<AppStates>{
     }).catchError((error){
       debugPrint(error.toString());
       emit(SearchLoadedFail());
+    });
+  }
+
+
+  late single_title_model.Results result;
+  bool singleTitleLoaded = false;
+  void getSingleTitle({required String id}){
+    singleTitleLoaded = false;
+    emit(SingleTitleLoad());
+    DioHelper.getData(
+        path: '/titles/${id.trim()}',
+        queryParameters: {
+          'info':'base_info',
+        }
+    ).then((value){
+      if(value.statusCode == 200){
+        result = single_title_model.Results.fromJson(value.data['results']);
+        debugPrint(result.id);
+        debugPrint(result.genresTypes?.genres?.length.toString());
+        singleTitleLoaded = true;
+        emit(SingleTitleLoadedSuccess());
+      }
+    }).catchError((error){
+      debugPrint(error.toString());
+      emit(SingleTitleLoadedFail());
     });
   }
 

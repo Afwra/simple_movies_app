@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                           condition: cubit.upComingLoaded,
                           builder:(context)=> ListView.separated(
                               scrollDirection: Axis.horizontal,
-                              itemBuilder: (context,index)=>defaultItemBuilder(result:cubit.upComingTitles[index]),
+                              itemBuilder: (context,index)=>defaultItemBuilder(result:cubit.upComingTitles[index],context: context),
                               separatorBuilder: (context,index)=>const SizedBox(width: 10,),
                               itemCount: cubit.upComingTitles.length
                           ),
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                         condition: cubit.trendingMoviesLoaded,
                         builder: (context)=>ListView.separated(
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.trendingMovies[index]),
+                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.trendingMovies[index],context: context),
                             separatorBuilder: (context,index)=>const SizedBox(width: 10,),
                             itemCount: cubit.trendingMovies.length
                         ),
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                         condition: cubit.trendingTvSeriesLoaded,
                         builder: (context)=>ListView.separated(
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.trendingTvSeries[index]),
+                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.trendingTvSeries[index],context: context),
                             separatorBuilder: (context,index)=>const SizedBox(width: 10,),
                             itemCount: cubit.trendingTvSeries.length
                         ),
@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                         condition: cubit.gamesLoaded,
                         builder: (context)=>ListView.separated(
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.games[index]),
+                            itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.games[index],context: context),
                             separatorBuilder: (context,index)=>const SizedBox(width: 10,),
                             itemCount: cubit.games.length
                         ),

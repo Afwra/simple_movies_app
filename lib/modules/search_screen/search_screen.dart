@@ -41,7 +41,7 @@ class SearchScreen extends StatelessWidget {
                     condition: cubit.searchLoaded,
                     builder: (context)=>Expanded(
                       child: ListView.separated(
-                          itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.searchResults[index]),
+                          itemBuilder: (context,index)=>defaultItemBuilder(result: cubit.searchResults[index],context: context),
                           separatorBuilder: (context,index)=>const SizedBox(height: 10,),
                           itemCount: cubit.searchResults.length
                       ),

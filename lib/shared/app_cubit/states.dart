@@ -16,3 +16,8 @@ class GamesLoadedFail extends AppStates{}
 class SearchLoadedSuccess extends AppStates{}
 class SearchLoading extends AppStates{}
 class SearchLoadedFail extends AppStates{}
+
+
+class SingleTitleLoadedSuccess extends AppStates{}
+class SingleTitleLoad extends AppStates{}
+class SingleTitleLoadedFail extends AppStates{}
