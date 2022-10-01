@@ -42,7 +42,7 @@ class SingleTitleScreen extends StatelessWidget {
                                 cubit.result.primaryImage?.url??
                                 'https://thumbs.dreamstime.com/z/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg',
                               ),
-                              fit: BoxFit.fill
+                              fit: BoxFit.fitWidth
                           ),
                           borderRadius: BorderRadius.circular(25),
                         ),

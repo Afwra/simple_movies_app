@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_movies_app/modules/home_screen/home_screen.dart';
@@ -9,7 +8,7 @@ import 'package:simple_movies_app/shared/network/remote/dio_helper.dart';
 void main(){
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       create: (context)=>AppCubit()..getUpcomingTitles()..getTrendingMovies()..getTrendingTvSeries()..getGames(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: const HomeScreen(),
         theme: ThemeData(
           fontFamily: 'Cairo'
         ),

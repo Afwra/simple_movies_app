@@ -7,7 +7,7 @@ import '../../models/title_model.dart';
 Widget defaultItemBuilder({required Results result,required BuildContext context}) => InkWell(
   onTap: (){
     AppCubit.get(context).getSingleTitle(id: result.id.toString());
-    navigateTo(context, SingleTitleScreen());
+    navigateTo(context, const SingleTitleScreen());
   },
       child: Container(
         height: 150,

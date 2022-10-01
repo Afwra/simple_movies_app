@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                       textInputType: TextInputType.text,
                       readonly: true,
                       onTap: (){
-                        navigateTo(context, SearchScreen());
+                        navigateTo(context, const SearchScreen());
                       }
                   ),
                   const SizedBox(height: 20,),
